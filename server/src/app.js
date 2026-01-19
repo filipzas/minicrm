@@ -29,7 +29,7 @@ app.use('/leads', authRequired, leadsRoutes);
 app.use('/tasks', authRequired, tasksRoutes);
 app.use('/audit', authRequired, requireRole('admin'), auditRoutes);
 
-const distPath = path.resolve(__dirname, '..', '..', 'dist');
+const distPath = path.resolve(__dirname, '..', '..', 'build');
 app.use(express.static(distPath));
 app.get('*', (req, res, next) => {
   if (req.accepts('html')) {
