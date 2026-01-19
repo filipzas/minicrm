@@ -1,9 +1,18 @@
-# Mini CRM (Svelte + Tailwind)
+# Mini CRM (Vue + Tailwind)
 
-## Dev
+## Frontend
 
 ```bash
 npm install
 npm run dev
 ```
-# minicrm
+
+Set API URL (optional):
+
+```bash
+VITE_API_URL=http://localhost:4000
+```
+
+## Backend
+
+See `server/README.md`.
