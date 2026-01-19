@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
 
 const authRoutes = require('./routes/auth');
 const clientsRoutes = require('./routes/clients');
@@ -27,6 +28,15 @@ app.use('/clients', authRequired, clientsRoutes);
 app.use('/leads', authRequired, leadsRoutes);
 app.use('/tasks', authRequired, tasksRoutes);
 app.use('/audit', authRequired, requireRole('admin'), auditRoutes);
+
+const distPath = path.resolve(__dirname, '..', '..', 'dist');
+app.use(express.static(distPath));
+app.get('*', (req, res, next) => {
+  if (req.accepts('html')) {
+    return res.sendFile(path.join(distPath, 'index.html'));
+  }
+  return next();
+});
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
