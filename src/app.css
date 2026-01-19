@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  font-family: 'Archivo', 'Helvetica Neue', sans-serif;
+  background: radial-gradient(circle at top left, #fff7e8 0%, #f2f5f8 45%, #ecf3f4 100%);
+  color: #101828;
+  min-height: 100vh;
+}
+
+::selection {
+  background: #ff6b4a;
+  color: #fff;
+}
+
+.surface-glow::before {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(110, 211, 242, 0.35), transparent 70%);
+  filter: blur(10px);
+  animation: glow 6s ease-in-out infinite;
+  pointer-events: none;
+}

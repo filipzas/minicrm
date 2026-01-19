@@ -1,0 +1,10 @@
+{
+	"/": [],
+	"/app": [],
+	"/app/clients": [],
+	"/app/clients/[id]": [],
+	"/app/leads": [],
+	"/app/tasks": [],
+	"/login": [],
+	"/register": []
+}
